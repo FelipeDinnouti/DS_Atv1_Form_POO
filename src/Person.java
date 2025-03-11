@@ -16,9 +16,13 @@ public class Person {
         this.age = (byte) age;
     }
     public void SetEmail(String email) {
-
+        this.email = email;
     }
     public void SetName(String name) {
+        this.name = name;
+    }
 
+    public String toString() {
+        return "Pessoa: " + name + "\n  - Idade: " + age + "\n  - E-mail: " + email + "\n";
     }
 }
