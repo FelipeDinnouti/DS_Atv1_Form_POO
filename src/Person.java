@@ -4,6 +4,7 @@ public class Person {
     
     public int GetIdade() {
         return this.age & 0xFF; // Returns unsigned age, you never know when someone may be 128 years old
+        // Masks the byte and casts it into an int
     }
     public String GetName() {
         return this.name;
