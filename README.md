@@ -1,9 +1,1 @@
-##
-Oi leo 
-
-
-## TODO 
-
-Deleting 
-Querying
-Editing
+Oi leo
