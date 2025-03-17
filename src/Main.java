@@ -73,6 +73,8 @@ public class Main {
                     register_handler.PrintPersons();
                     break;
                 default:
+                    System.out.println("\n\nComando não reconhecido\n\n");
+
                     break;
             }
 
