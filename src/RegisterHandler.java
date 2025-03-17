@@ -1,24 +1,50 @@
+import java.util.ArrayList;
+
 public class RegisterHandler {
-    private Person[] registered_persons = new Person[1];
+    private ArrayList<Person> registered_persons = new ArrayList<Person>();
+    private boolean debug = false;
 
     public void RegisterPerson(Person p) {
-        // Expand array1
-        Person[] expanded = new Person[registered_persons.length+1];
-        System.arraycopy(registered_persons, 0, expanded, 0, registered_persons.length);
+        registered_persons.add(p);
+    }
 
-        registered_persons[registered_persons.length-1] = p;
+    public void PrintPersons() {
+        for (int i = 0; i<registered_persons.size(); i++) {
+            System.out.println(registered_persons.get(i));
+        }
+    }
+
+    public void DeletePerson(String target_email) {
+        for (int i = 0; i<registered_persons.size(); i++) {
+            Person person = registered_persons.get(i);
+
+            if (debug == true) System.out.println(person);
+
+            if (person == null) continue;
+
+            if (person.GetEmail().equals(target_email)) {
+                registered_persons.remove(i); // Removes person from the list
+                break;
+            }
+        }
     }
 
     public Person GetPersonByEmail(String target_email) {
-        Person p = null;
+        if (debug == true) System.out.println("Trying to find: " + target_email);
 
-        for (int i = 0; i<registered_persons.length; i++) {
-            if (registered_persons[i].GetEmail() == target_email) {
-                return registered_persons[i];
+        for (int i = 0; i<registered_persons.size(); i++) {
+            Person person = registered_persons.get(i);
+
+            if (debug == true) System.out.println(person);
+
+            if (person == null) continue;
+
+            if (person.GetEmail().equals(target_email)) {
+                return person;
             }
         }
 
-        return p;
+        return null;
     }
 
 }
